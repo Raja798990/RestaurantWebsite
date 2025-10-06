@@ -16,22 +16,41 @@
     }
 
     header {
+      position: relative;
       background: linear-gradient(135deg, #6b21a8, #7e0c28);
       color: #fff;
       text-align: center;
       padding: 40px 20px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      transition: background 0.4s ease;
     }
 
     header h1 {
       font-size: 2.4em;
       margin: 0;
+      display: inline-block;
     }
 
-    header h3 {
+    header span {
       font-weight: 400;
-      margin-top: 10px;
-      letter-spacing: 1px;
+      font-size: 0.95em;
+      margin-left: 10px;
+      color: #e2e8f0;
+    }
+
+    /* Day/Night icon */
+    .theme-icon {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 1.8em;
+      cursor: pointer;
+      transition: transform 0.6s ease, opacity 0.4s ease;
+      user-select: none;
+    }
+
+    .theme-icon:hover {
+      transform: rotate(25deg) scale(1.1);
     }
 
     .proposal-btn {
@@ -100,13 +119,45 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
+    /* Dark Mode */
+    body.dark {
+      background: #1a1a22;
+      color: #eee;
+    }
+
+    body.dark header {
+      background: linear-gradient(135deg, #4b0082, #5b0a1e);
+    }
+
+    body.dark section {
+      background: #2b2b3a;
+      color: #f4f4f4;
+      box-shadow: 0 3px 15px rgba(255,255,255,0.05);
+    }
+
+    body.dark h2 {
+      color: #d8b4fe;
+      border-bottom: 2px solid #f472b6;
+    }
+
+    body.dark h3 { color: #c084fc; }
+
+    body.dark footer {
+      background: linear-gradient(90deg, #4b0082, #5b0a1e, #4b0082);
+      color: #f5f5f5;
+    }
+
+    body.dark .proposal-btn {
+      background: linear-gradient(90deg, #9333ea, #db2777);
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Proposals</h1>
-    <h3>by Gurdeep Gursimransingh</h3>
+    <h1>Proposals <span>– Gurdeep Gursimransingh</span></h1>
+    <div id="theme-icon" class="theme-icon" onclick="toggleTheme()">🌞</div>
   </header>
 
   <!-- Buttons -->
@@ -116,9 +167,6 @@
   <!-- ===== RESTAURANT PROPOSAL ===== -->
   <section id="restaurant">
     <h2>Restaurant Platform</h2>
-
-    <h3>Who</h3>
-    <p>Gurdeep Gursimransingh</p>
 
     <h3>One-liner</h3>
     <p>A smart restaurant web application where customers can log in and reserve tables online within fixed hours, while the owner manages bookings, uploads menus, and communicates automatically through email and WhatsApp notifications.</p>
@@ -150,9 +198,6 @@
   <!-- ===== INSURANCE PROPOSAL ===== -->
   <section id="insurance">
     <h2>Insurance Risk Calculator Platform</h2>
-
-    <h3>Who</h3>
-    <p>Gurdeep Gursimransingh</p>
 
     <h3>One-liner</h3>
     <p>A web-based insurance platform that calculates personalized risk scores for clients based on age, income, health habits, and other data, helping insurers determine fair premiums and risk categories.</p>
@@ -187,11 +232,23 @@
     function toggleSection(id) {
       const section = document.getElementById(id);
       const isVisible = section.style.display === "block";
-      // hide all sections first
       document.querySelectorAll('section').forEach(sec => sec.style.display = "none");
-      // toggle clicked one
       section.style.display = isVisible ? "none" : "block";
       section.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      const icon = document.getElementById('theme-icon');
+      icon.style.opacity = '0';
+      setTimeout(() => {
+        icon.textContent = document.body.classList.contains('dark') ? '🌙' : '🌞';
+        icon.style.opacity = '1';
+        icon.style.transform = 'rotate(360deg)';
+      }, 200);
+      setTimeout(() => {
+        icon.style.transform = 'rotate(0deg)';
+      }, 600);
     }
   </script>
 
