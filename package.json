@@ -1,0 +1,27 @@
+{
+  "name": "restaurantwebsite",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The Restaurant Platform is a smart web application designed to help restaurant owners manage table reservations, display menus, and automate customer communication. Built with HTML, CSS, and JavaScript, it provides both a customer-friendly booking interface and a business management dashboard.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raja798990/RestaurantWebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raja798990/RestaurantWebsite/issues"
+  },
+  "homepage": "https://github.com/Raja798990/RestaurantWebsite#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
