@@ -1,0 +1,33 @@
+# --------------------
+# Node & Dependencies
+# --------------------
+node_modules/
+package-lock.json
+
+# --------------------
+# Build / Cache Files
+# --------------------
+dist/
+build/
+*.log
+
+# --------------------
+# System Files
+# --------------------
+.DS_Store
+Thumbs.db
+
+# --------------------
+# Editor / IDE Settings
+# --------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --------------------
+# Temporary / Backup Files
+# --------------------
+*.tmp
+*.bak
+*.old
